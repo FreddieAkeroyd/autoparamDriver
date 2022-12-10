@@ -27,7 +27,7 @@
 
 # Variables and paths to dependent modules:
 MODULES = /path/to/modules
-ASYN = $(MODULES)/asyn
+ASYN=$(SUPPORT)/asyn/master
 
 # EPICS_BASE should appear last so earlier modules can override stuff:
 EPICS_BASE = $(MODULES)/../base
@@ -41,3 +41,6 @@ EPICS_BASE = $(MODULES)/../base
 -include $(TOP)/../RELEASE.local
 -include $(TOP)/../RELEASE.$(EPICS_HOST_ARCH).local
 -include $(TOP)/configure/RELEASE.local
+
+include $(TOP)/../../../ISIS_CONFIG
+-include $(TOP)/../../../ISIS_CONFIG.$(EPICS_HOST_ARCH)

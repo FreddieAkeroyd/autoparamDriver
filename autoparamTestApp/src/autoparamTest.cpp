@@ -7,8 +7,12 @@
 #include <ctime>
 #include <cstdlib>
 #include <iocsh.h>
-#include <epicsExport.h>
 #include <epicsThread.h>
+#include <epicsExport.h>
+
+#ifdef _WIN32
+#define rand_r(x) rand()
+#endif
 
 using namespace Autoparam::Convenience;
 
@@ -263,7 +267,7 @@ class AutoparamTest : public Autoparam::Driver {
         return WriteResult();
     }
 
-    uint randomSeed;
+    unsigned randomSeed;
     epicsInt32 currentSum;
     std::vector<epicsInt8> wfm8Data;
     epicsUInt32 shiftedRegister;
